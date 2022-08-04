@@ -70,7 +70,8 @@ function s.spreg(e,tp,eg,ep,ev,re,r,rp)
 	e:GetHandler():RegisterFlagEffect(id,RESET_EVENT+RESETS_STANDARD+RESET_PHASE+PHASE_END,0,2)
 end
 function s.spcon(e,tp,eg,ep,ev,re,r,rp)
-	return e:GetLabelObject():GetLabel()~=Duel.GetTurnCount() and e:GetHandler():GetFlagEffect(id)>0
+	local c=e:GetHandler()
+	return e:GetLabelObject():GetLabel()~=Duel.GetTurnCount() and c:GetFlagEffect(id)>0
 		and c:IsPreviousLocation(LOCATION_MZONE)
 end
 function s.sptg(e,tp,eg,ep,ev,re,r,rp,chk)
