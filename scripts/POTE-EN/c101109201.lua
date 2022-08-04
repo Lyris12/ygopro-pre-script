@@ -4,7 +4,7 @@ local s,id,o=GetID()
 function s.initial_effect(c)
 	c:EnableReviveLimit()
 	--material
-	aux.AddSynchroMixProcedure(c,aux.Tuner(Card.IsRace,RACE_FISH),aux.NonTuner(nil),nil,nil,0,99)
+	aux.AddSynchroMixProcedure(c,aux.Tuner(Card.IsRace,RACE_FISH),nil,nil,s.mfilter,1,99)
 	--atk
 	local e0=Effect.CreateEffect(c)
 	e0:SetType(EFFECT_TYPE_SINGLE)
@@ -41,6 +41,9 @@ function s.initial_effect(c)
 	e3:SetOperation(s.spop)
 	e3:SetLabelObject(e2)
 	c:RegisterEffect(e3)
+end
+function s.mfilter(c)
+	return not c:IsType(TYPE_TUNER) or c:IsRace(RACE_FISH)
 end
 function s.filter(c)
 	return c:IsFaceup() and c:IsType(TYPE_MONSTER)
