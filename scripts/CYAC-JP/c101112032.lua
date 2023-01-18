@@ -1,6 +1,5 @@
 --coded by Lyris
 --Bunny Instruct-ear
---Bunny Ears Counter: 0x1162
 local s,id,o=GetID()
 function s.initial_effect(c)
 	--counter
