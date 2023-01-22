@@ -1,8 +1,8 @@
 --coded by Lyris
---Counter(Gunkan Suship Chef's Choice)=0x163
 local s,id,o=GetID()
 function s.initial_effect(c)
 	c:EnableCounterPermit(0x163)
+	aux.SushipMentionsTable=aux.SushipMentionsTable or {61027400,78362751,42377643}
 	--Activate
 	local e1=Effect.CreateEffect(c)
 	e1:SetType(EFFECT_TYPE_ACTIVATE)
