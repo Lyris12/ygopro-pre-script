@@ -61,12 +61,14 @@ function s.cfilter(c)
 	return c:GetOriginalRace()&RACE_FAIRY>0 and c:GetOriginalType()&TYPE_MONSTER>0
 end
 function s.ctcon(e,tp,eg,ep,ev,re,r,rp)
+	local c=e:GetHandler()
 	return Duel.IsExistingMatchingCard(s.cfilter,tp,LOCATION_PZONE,0,1,c) and r==REASON_EFFECT
 end
 function s.ctop(e,tp,eg,ep,ev,re,r,rp)
 	e:GetHandler():AddCounter(0x170,1)
 end
 function s.adval(e,c)
+	local tp=e:GetHandlerPlayer()
 	return Duel.GetCounter(tp,1,0,0x170)
 end
 function s.pzcost(e,tp,eg,ep,ev,re,r,rp,chk)
